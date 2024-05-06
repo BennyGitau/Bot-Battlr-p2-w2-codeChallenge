@@ -1,14 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import YourBotArmy from "./YourBotArmy";
 import BotCollection from "./BotCollection";
 import axios from 'axios'
 import BotSpecs from './BotSpecs';
+import SortBar from "./SortBar";
 
 function BotsPage() {
-  const [bots, setBots] = useState([])
-  const [selectedBots, setselectedBots] = useState([])
-  const [showBots, setShowBots] = useState(false)
-  const [myArmy, setMyArmy] = useState([])
+  const [bots, setBots] = useState([]);
+  const [selectedBots, setselectedBots] = useState([]);
+  const [showBots, setShowBots] = useState(false);
+  const [myArmy, setMyArmy] = useState([]);
+  const [category, setCategory] = useState('');
+
 
 
   //start here with your code for step one
@@ -43,10 +46,32 @@ function deleteBot(deletedBot){
   const updatedMyArmy = myArmy.filter(bot=> bot.id !== deletedBot.id);
   setMyArmy(updatedMyArmy)
 }
-return (
-  
+const sortedBots = useMemo(()=>{
+  let sortedItems = [...bots]
+  if(category === 'armor'){
+    sortedItems.sort((a,b) => b.armor - a.armor)
+  } else if (category === 'health'){
+    sortedItems.sort((a,b) => b.health - a.health)
+  } else if(category === 'damage'){
+    sortedItems.sort((a,b)=> b.damage - a.damage)
+  } 
+  return sortedItems
 
-        
+},[category, bots])
+
+function sortByArmor(){
+setCategory('armor')
+}
+function sortByDamage(){
+  setCategory('damage')
+
+}
+function sortByHealth(){
+  setCategory('health')
+}
+
+
+return ( 
       <div>
         <YourBotArmy 
           bots={myArmy} 
@@ -57,9 +82,12 @@ return (
           handleGoBack={handleGoBack}
           handleEnlist={handleEnlist}
         /> : 
-        <BotCollection  bots={bots}
+        <>
+        <SortBar sortByArmor={sortByArmor} sortByDamage={sortByDamage} sortByHealth={sortByHealth}/>
+        <BotCollection  bots={sortedBots}
           handleSelect={handleSelect}
           deleteBot={deleteBot}/>
+        </>
         }
       </div>
       

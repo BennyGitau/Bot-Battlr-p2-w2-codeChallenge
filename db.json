@@ -709,18 +709,6 @@
       "updated_at": "2018-10-02T19:55:12.207Z"
     },
     {
-      "id": 180,
-      "name": "\\-94",
-      "health": 75,
-      "damage": 40,
-      "armor": 99,
-      "bot_class": "Defender",
-      "catchphrase": "010001011110101110011011101001010100010010111110",
-      "avatar_url": "https://robohash.org/invelitmaiores.png?size=300x300&set=set1",
-      "created_at": "2018-10-02T19:55:12.230Z",
-      "updated_at": "2018-10-02T19:55:12.230Z"
-    },
-    {
       "id": 181,
       "name": "J-87",
       "health": 97,
@@ -815,18 +803,6 @@
       "avatar_url": "https://robohash.org/doloribusetsint.png?size=300x300&set=set1",
       "created_at": "2018-10-02T19:55:12.378Z",
       "updated_at": "2018-10-02T19:55:12.378Z"
-    },
-    {
-      "id": 189,
-      "name": "yXB-04",
-      "health": 48,
-      "damage": 26,
-      "armor": 100,
-      "bot_class": "Defender",
-      "catchphrase": "111110111100011000000000111011101",
-      "avatar_url": "https://robohash.org/quiomniset.png?size=300x300&set=set1",
-      "created_at": "2018-10-02T19:55:12.397Z",
-      "updated_at": "2018-10-02T19:55:12.397Z"
     },
     {
       "id": 190,
